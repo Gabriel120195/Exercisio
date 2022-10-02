@@ -1,25 +1,37 @@
-﻿namespace Exercisio03_03_J
+﻿using System;
+using System.ComponentModel;
+
+namespace Exercisio04_02
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main(string[] args )
         {
-            int numero = int.Parse(Console.ReadLine());
-            int conta = 1;
 
-            for (int i = 1; i < numero; i++)
+            List<int> ListaNumeros = new List<int>();
+            ListaNumeros.Add(20);
+            ListaNumeros.Add(30);
+            ListaNumeros.Add(40);
+            ListaNumeros.Add(20);
+            ListaNumeros.Add(60);
+            ListaNumeros.Add(30);
+            Console.WriteLine("Conteudo da lista: " + ListaNumeros.Count);
+            Console.WriteLine("Dados da lista");
+          
+            foreach (var n in ListaNumeros)
             {
-                if (numero % i == 0)
-                {
-                    conta = conta + 1;
-                }
+                Console.Write(n  + "\n");
             }
 
-            if (conta == 2)
-                Console.WriteLine("O Número {0} é Primo!", numero);
-            else
-                Console.WriteLine("O Número {0} Não é Primo", numero);
+            HashSet<int> hSet = new HashSet<int>(ListaNumeros);
+            Console.WriteLine("Número inteiros " + hSet.Count);
+            //Output in Hashset
+            Console.WriteLine("Lista sem repetição: ");
+            foreach (var n in hSet)
+            {
+                Console.Write(n + "\t");
+            }
+            Console.ReadLine();
         }
     }
 }
-
